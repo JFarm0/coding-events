@@ -8,6 +8,8 @@
 
 <h1>Create Event</h1>
 
+<nav th:replace="fragments :: navigation"></nav>
+
 <form method="post" action="/events/create">
     <input type="text" name="eventName">
     <input type="submit" value="Create Event">
