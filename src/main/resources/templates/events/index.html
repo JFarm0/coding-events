@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-
 <body class="container">
 
 <h1>All Events</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${events} and ${events.size()}">No events!</p>
-
-<table class="table-striped">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>Event Name</th>
-            <th>Description</th>
-            <th>Address</th>
+            <th>Name</th>
         </tr>
     </thead>
-
-    <th:block th:each="event : ${events}">
-        <tr>
-            <td th:text="${event.getKey()}"></td>
-            <td th:text="${event.getValue()}"></td>
-            <td th:replace="fragments :: address">Address</td>
-        </tr>
-    </th:block>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.name}"></td>
+    </tr>
 </table>
 
 </body>
