@@ -1,9 +1,7 @@
 package org.launchcode.codingevents.models;
 
 import java.util.Objects;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 
 public class Event {
@@ -22,13 +20,31 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
+    @NotBlank(message = "Location is required.")
+    @NotNull(message = "Location may not be null.")
+    private String location;
+
+    @NotNull(message = "A selection is required.")
+    private Boolean mustRegister;
+
+    @Min(0)
+    private int numberAttendees;
+
+    @Min(0)
+    @Max(100)
+    private int numberParking;
+
     private EventType type;
 
-    public Event(String name, String description, String contactEmail, EventType type) {
+    public Event(String name, String description, String contactEmail, String location, Boolean mustRegister, int numberAttendees, int numberParking, EventType type) {
         this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.location = location;
+        this.mustRegister = mustRegister;
+        this.numberAttendees = numberAttendees;
+        this.numberParking = numberParking;
         this.type = type;
     }
 
@@ -70,6 +86,38 @@ public class Event {
 
     public void setType(EventType type) {
         this.type = type;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Boolean getMustRegister() {
+        return mustRegister;
+    }
+
+    public void setMustRegister(Boolean mustRegister) {
+        this.mustRegister = mustRegister;
+    }
+
+    public int getNumberAttendees() {
+        return numberAttendees;
+    }
+
+    public void setNumberAttendees(int numberAttendees) {
+        this.numberAttendees = numberAttendees;
+    }
+
+    public int getNumberParking() {
+        return numberParking;
+    }
+
+    public void setNumberParking(int numberParking) {
+        this.numberParking = numberParking;
     }
 
     @Override

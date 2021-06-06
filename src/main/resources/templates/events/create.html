@@ -27,6 +27,30 @@
         <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
     <div class="form-group">
+        <label>Location
+            <input th:field="${event.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.location}"></p>
+    </div>
+    <div class="form-group">
+        <label>Must Register?
+            <input th:field="${event.mustRegister}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.mustRegister}"></p>
+    </div>
+    <div class="form-group">
+        <label>Number Attending
+            <input th:field="${event.numberAttendees}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.numberAttendees}"></p>
+    </div>
+    <div class="form-group">
+        <label>Number Parking
+            <input th:field="${event.numberParking}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.numberParking}"></p>
+    </div>
+    <div class="form-group">
         <label>Type
             <select th:field="${event.type}">
                 <option th:each="type : ${types}"
